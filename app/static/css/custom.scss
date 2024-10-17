@@ -140,6 +140,7 @@ input[type="submit"] {
   padding: 0.5rem 2rem;
   background-color: $primary-color;
   border: 2px solid $primary-color;
+  border-radius: 3px;
   color: white;
   transition: 0.3s;
   font-size: 2.5rem;
@@ -421,7 +422,7 @@ div.message {
 }
 
 .dropdown-menu {
-  background-color: white;
+  background-color: $secondary-color;
   // color: darken($secondary-color, 15%);
   margin-top: 1rem;
 }
@@ -471,8 +472,17 @@ div.message {
   }
 }
 
+.drawer__content, .drawer__header {
+  background-color: $secondary-color;
+}
+
 .drawer__content a {
   display: inline;
+}
+
+.drawer__close::before, .drawer__close::after {
+  background-color: white;
+  height: 3px;
 }
 
 .menu-link {
@@ -482,8 +492,8 @@ div.message {
   transition: 0.3s;
 
   &:hover {
-    background-color: $primary-color;
-    border-color: $primary-color;
+    background-color: lighten($primary-color, 15%);
+    // border-color: $primary-color;
     color: white;
   }
 
@@ -533,11 +543,12 @@ div.message {
   display: block;
   //margin: 3rem auto;
   // height: calc(100px + 3vw);
-  height: 80px;
+  max-height: 80px;
+  padding-right: 3rem;
 }
 
 #home-title {
-  margin-top: 5rem;
+  line-height: 1;
   text-align: center;
 }
 
@@ -576,12 +587,12 @@ div.message {
 
     &.dropdown-item {
       font-size: $body-font-size;
-      color: $secondary-color;
+      color: white;
 
       &:hover,
       &:focus {
         font-weight: 400;
-        background-color: $primary-color;
+        background-color: lighten($primary-color, 15%);
         color: white;
     }
     }
@@ -631,6 +642,76 @@ div.message {
   // &:hover {
 
   // }
+}
+
+// Testimonials slider
+
+.chevron {
+	position: absolute;
+	margin: auto 0;
+	top: 0;
+	bottom: 8rem;
+	right: 0;
+	height: 25px;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+
+	.circle {
+		fill: $secondary-color;
+		transition: 0.2s fill ease-in;
+	}
+
+	&.left {
+		transform: rotate(180deg);
+		left: 0;
+	}
+
+	&:hover {
+		.circle {
+			fill: $primary-color;
+		}
+
+		.arrow {
+			fill: white;
+		}
+	}
+}
+
+.tns-nav {
+	text-align: center;
+
+	button {
+		display: inline-block;
+		margin: 5px;
+		padding: 0;
+		border: none;
+		height: 10px;
+		width: 10px;
+		border-radius: 50%;
+		background-color: #ddd;
+
+		&:hover {
+			background-color: #ddd;
+		}
+
+		&.tns-nav-active {
+			background-color: $secondary-color;
+		}
+	}
+}
+
+.tns-outer > button {
+	margin: 0 auto;
+	padding-top: 0;
+	background-color: transparent;
+	border: none;
+	font-family: sans-serif;
+	font-size: 2.5rem;
+
+	&:hover {
+		background-color: transparent;
+	}
 }
 
 // About page //
