@@ -22,7 +22,7 @@ class ContactForm(FlaskForm):
     subject = StringField('Subject', render_kw={'placeholder': 'Subject'}, default='Message')
     message = TextAreaField('Message', render_kw={"placeholder": "Message"}, \
         validators=[InputRequired()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Send message')
 
 
 class EmailListForm(FlaskForm):
@@ -94,7 +94,7 @@ class UserForm(FlaskForm):
     def __init__(self, original_email, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
         self.original_email = original_email
-    
+
     def validate_email(self, email):
         if email.data != self.original_email:
             user = User.query.filter_by(email=email.data).first()

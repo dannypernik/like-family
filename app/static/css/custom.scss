@@ -2,13 +2,15 @@ $font-size-root: 10px;
 $body-font-size: 1.8rem;
 $lead-font-size: calc(2rem + 0.1vw);
 $lead-font-weight: inherit;
-$body-font: 'Montserrat', 'Helvetica', sans-serif;
 $spacer: 2rem;
-$primary-color: #1C4D65;
-$secondary-color: #4ad1cc;//58bba4;
-$highlight-color: #d35137;//e97435;
+$primary-color: #32a873;
+$secondary-color: #2392f4; //58bba4;
+$highlight-color: #d35137; //e97435;
 $message-color: #004085;
 $alert-color: #850017;
+$title-font: "Crimson Pro", serif;
+$body-font: "Montserrat", sans-serif;
+$body-font-color: darken($secondary-color, 15%);
 
 @import "../scss/bootstrap-reboot.scss";
 @import "bootstrap/bootstrap-grid.min.css";
@@ -18,6 +20,7 @@ $alert-color: #850017;
 @import "../scss/_modal.scss";
 @import "../scss/_close.scss";
 @import "../scss/_tables.scss";
+@import "../scss/_dropdown.scss";
 
 @import "menu.css";
 
@@ -25,18 +28,20 @@ $alert-color: #850017;
 
 html {
   height: 100%;
-  scroll-padding-top: 60px;
+  scroll-padding-top: 90px;
 }
 
 body {
   height: 100%;
   font-family: $body-font;
-  color: $primary-color;
+  color: $body-font-color;
   font-size: $body-font-size;
+  font-optical-sizing: auto;
+  font-style: normal;
   font-weight: 400;
   line-height: 1.4;
   display: flex;
-  flex-direction:  column;
+  flex-direction: column;
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
@@ -54,33 +59,45 @@ body {
 
 // Headings and text //
 
-p, h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-bottom: 2rem;
+  font-family: $title-font;
+  font-weight: 700;
 }
 
-h1, .h1 {
-  font-size: calc(2.3rem + 1vw);
-  font-weight: 700;
+h1,
+.h1 {
+  font-size: calc(3rem + 3vw);
   margin-bottom: 3rem;
 }
 
-h2, .h2 {
-  font-size: calc(2.2rem + 0.5vw);
+h2,
+.h2 {
+  font-size: calc(2.75rem + 2.5vw);
 }
 
-h3, .h3 {
-  font-size: calc(2rem + 0.5vw);
+h3,
+.h3 {
+  font-size: calc(2.75rem + 1.5vw);
 }
 
-h4, .h4 {
-  font-size: calc(1.8rem + 0.25vw);
+h4,
+.h4 {
+  font-size: calc(1.8rem + 1vw);
 }
 
-h5, .h5 {
-  font-size: calc(1.6rem + 0.25vw);
+h5,
+.h5 {
+  font-size: calc(1.6rem + 0.7vw);
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: calc(1.4rem + 0.25vw);
 }
 
@@ -89,11 +106,11 @@ h6, .h6 {
 a {
   display: inline-block;
   text-decoration: none;
-  color: darken($secondary-color, 15%);
-  transition: all 0.2s ease-in-out;
+  color: $primary-color;
+  transition: all 0.05s ease-in-out;
 
   &:hover {
-    color: $secondary-color;
+    color: lighten($primary-color, 5%);
   }
 
   &:before {
@@ -107,27 +124,31 @@ a {
 
   &.btn {
     display: inline-block;
-    
+
     &:hover {
       text-decoration: none;
     }
   }
 }
 
-button, .btn, input[type="submit"] {
+button,
+.btn,
+input[type="submit"] {
+  font-family: $title-font;
   display: block;
   margin: 2rem auto;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   background-color: $primary-color;
   border: 2px solid $primary-color;
   color: white;
   transition: 0.3s;
-  font-size: 1.7rem;
+  font-size: 2.5rem;
   font-weight: 600;
+  line-height: 3rem;
 
   &:hover {
-    background-color: $secondary-color;
-    border-color: $secondary-color;
+    background-color: lighten($primary-color, 10%);
+    border-color: lighten($primary-color, 10%);
     color: white;
   }
 
@@ -135,7 +156,7 @@ button, .btn, input[type="submit"] {
     background-color: transparent;
     border-color: white;
   }
-  
+
   .btn.sec {
     color: $primary-color;
     border-color: $primary-color;
@@ -143,32 +164,32 @@ button, .btn, input[type="submit"] {
     font-weight: 400;
     width: fit-content;
   }
-  
+
   &.highlight {
     background-color: $highlight-color;
     border: none;
 
     &:hover {
-      background-color: darken($highlight-color, 8%);//#b03e28;
+      background-color: darken($highlight-color, 8%); //#b03e28;
     }
   }
-  
+
   &.sm {
     font-weight: 400;
     border-width: 1px;
     margin-top: 1rem;
     padding: 0.5rem 2rem;
   }
-  
+
   &.cta {
     margin-top: calc(2rem + 1vw);
     font-size: $lead-font-size;
   }
-  
+
   .row:hover > div > .btn.edit {
     display: inline-block;
   }
-  
+
   &.alert {
     color: $alert-color;
     border-color: $alert-color;
@@ -184,7 +205,8 @@ button, .btn, input[type="submit"] {
 
 // Inputs //
 
-input, textarea {
+input,
+textarea {
   font-size: 1.6rem;
   line-height: 2.5rem;
   padding: 1rem;
@@ -199,7 +221,7 @@ input, textarea {
   }
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -211,7 +233,7 @@ input[type='checkbox'] {
     cursor: pointer;
 
     &::before {
-      content: '';
+      content: "";
       display: inline-block;
       position: absolute;
       left: 0;
@@ -229,7 +251,7 @@ input[type='checkbox'] {
     }
 
     + label::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 4px;
       left: 4px;
@@ -246,7 +268,7 @@ input[type='checkbox'] {
   }
 }
 
-input[type='radio'] {
+input[type="radio"] {
   opacity: 0;
   width: 0;
 
@@ -257,7 +279,7 @@ input[type='radio'] {
     cursor: pointer;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       display: inline-block;
       left: -2.2rem; /* This will be adjusted */
@@ -270,7 +292,7 @@ input[type='radio'] {
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       display: inline-block;
       left: -1.7rem;
@@ -317,23 +339,26 @@ select {
 
 .inverse {
   color: white;
-  
+
   a {
     color: white;
 
-    &:hover, &:hover h2 {
+    &:hover,
+    &:hover h2 {
       font-weight: 600;
       color: white;
     }
   }
 
-  button, .btn, input[type="submit"] {
+  button,
+  .btn,
+  input[type="submit"] {
     background-color: $secondary-color;
     border-color: $secondary-color;
 
     &:hover {
-      background-color: darken($secondary-color, 15%);
-      border-color: darken($secondary-color, 15%);
+      background-color: lighten($secondary-color, 5%);
+      border-color: lighten($secondary-color, 5%);
     }
   }
 }
@@ -380,36 +405,70 @@ div.message {
   position: sticky;
   top: 0;
   border: none;
-  border-bottom: 1px solid $primary-color;
-  background-color: $primary-color;
+  // border-bottom: 1px solid white;
+  background-color: white;
   z-index: 100;
 }
 
 #nav-img {
-  height: 36px;
-  margin: 12px 0;
+  height: 6rem;
+  margin: 1.5rem 0;
   max-width: 100%;
 }
 
+.dropdown-toggle {
+  padding: 1rem 0;
+}
+
+.dropdown-menu {
+  background-color: white;
+  // color: darken($secondary-color, 15%);
+  margin-top: 1rem;
+}
+
+.dropdown-toggle::after {
+  margin-left: 0.55em;
+}
+
 #menu-title {
-  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 #menu-btn {
+  font-family: $title-font;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 2.4rem;
   display: flex;
   justify-content: flex-end;
-  margin: 17px 0 17px auto;
-  color: white;
+  margin: 30px 0 30px auto;
+  color: $body-font-color;
   text-decoration: none;
+  cursor: pointer;
 }
 
-#menu-btn:hover, #menu-btn:focus {
+#menu-btn:hover,
+#menu-btn:focus {
   text-decoration: none;
+  color: $secondary-color;
+
+  rect {
+    fill: $secondary-color;
+  }
+  circle {
+    stroke: $secondary-color;
+  }
 }
 
 #menu-icon {
   height: 26px;
   padding-left: 15px;
+  rect {
+    fill: $body-font-color;
+  }
+  circle {
+    stroke: $body-font-color;
+  }
 }
 
 .drawer__content a {
@@ -419,12 +478,12 @@ div.message {
 .menu-link {
   height: 60px;
   border-bottom: 1px solid white;
-  color: $primary-color;
+  color: white;
   transition: 0.3s;
 
   &:hover {
-    background-color: $secondary-color;
-    border-color: $secondary-color;
+    background-color: $primary-color;
+    border-color: $primary-color;
     color: white;
   }
 
@@ -439,7 +498,7 @@ div.message {
   width: 100%;
   bottom: 0;
   padding: 20px;
-  background-color: $primary-color;
+  background-color: $body-font-color;
   color: white;
   margin-top: 11rem;
 }
@@ -447,14 +506,14 @@ div.message {
 // Home page
 
 #home-1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/simon-berger-twukN12EN7c-unsplash.jpg) center bottom no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/annie-spratt-vY-dUdwUWfs-unsplash.jpg) center bottom no-repeat;
 }
 
-#home-3 {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/te-lun-ou-yang-TFZlTFOWReA-unsplash.jpg) center bottom no-repeat;
-}
+// #home-3 {
+//   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/annie-spratt-1zGoJydy0DM-unsplash.jpg) center center no-repeat;
+// }
 
-#home-1, #home-3 {
+#home-1 { //#home-3 {
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
@@ -463,7 +522,8 @@ div.message {
 
 // Mobile backgrounds //
 @media screen and (max-width: 575px) {
-  #home-1, #home-3 {
+  #home-1,
+  #home-3 {
     background-attachment: scroll;
   }
 }
@@ -471,12 +531,14 @@ div.message {
 #home-logo {
   position: relative;
   display: block;
-  margin: 3rem auto;
-  height: calc(80px + 3vw);
+  //margin: 3rem auto;
+  // height: calc(100px + 3vw);
+  height: 80px;
 }
 
 #home-title {
-  font-size: calc(1.8rem + 3vw);
+  margin-top: 5rem;
+  text-align: center;
 }
 
 #home-tagline {
@@ -485,33 +547,51 @@ div.message {
   font-weight: 700;
 }
 
+.darken {
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+
 .home-nav {
   display: flex;
   justify-content: space-between;
   background-color: transparent;
   border: none;
+  padding: calc(1rem + 2vw) 0;
 
   li {
     list-style: none;
   }
-  
+
   a {
     color: white;
     font-size: 2rem;
     text-decoration: none;
-    padding: calc(3rem + 2vw) 0;
     text-transform: capitalize;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       font-weight: 600;
+    }
+
+    &.dropdown-item {
+      font-size: $body-font-size;
+      color: $secondary-color;
+
+      &:hover,
+      &:focus {
+        font-weight: 400;
+        background-color: $primary-color;
+        color: white;
+    }
     }
   }
 }
 
 .home-section {
-  min-height: 100vh;
+  min-height: calc(100vh - 9rem);
   overflow: auto;
-  padding-top: calc(3rem + 2vw);
+  padding-top: 2rem;
 
   &.end {
     min-height: calc(100vh - 30rem);
@@ -526,6 +606,31 @@ div.message {
 
 .bi-chevron-down {
   font-size: 1rem;
+}
+
+.service-icons a {
+  color: $body-font-color;
+
+  &:hover {
+    color: $secondary-color;
+    font-weight: 1000;
+
+    .care-icon {
+      filter: invert(52%) sepia(84%) saturate(362%) hue-rotate(101deg) brightness(100%) contrast(82%);
+    }
+  }
+}
+
+.care-icon {
+  height: 7rem;
+  display: block;
+  margin: 2rem auto 0.5rem;
+  padding: 0 3rem;
+  filter: invert(52%) sepia(84%) saturate(362%) hue-rotate(101deg) brightness(91%) contrast(82%);
+
+  // &:hover {
+
+  // }
 }
 
 // About page //

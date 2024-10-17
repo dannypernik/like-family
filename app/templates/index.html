@@ -2,8 +2,14 @@
 
 {% block navbar %}{% endblock navbar %}
 
+{% block head %}
+  {{ super() }}
+
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+{% endblock head %}
+
 {% block container %}
-  <div id="home-1" class="inverse text-center">
+  <div id="home-1" class="inverse">
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         {% for category, message in messages %}
@@ -17,9 +23,22 @@
     {% endwith %}
     <nav class="row justify-content-center g-0">
       <div class="col-11 col-md-10">
-        <div class="row justify-content-center justify-content-md-end">
-          <div class="home-nav col col-md-7 col-lg-6 col-xl-5">
-            <div><a href="#home" data-text="home">home</a></div>
+        <div class="row justify-content-center">
+          <div class="home-nav align-items-center">
+              <a href="#home-1" data-text="home">
+                <img id="home-logo" class="img-fluid" src="{{ url_for('static', filename='img/image1.png') }}" alt="">
+              </a>
+            <div class="dropdown">
+              <a href="#" role="button" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" data-text="utah in-home care">utah in-home care</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('alzheimers_care') }}">Alzheimer's Care</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('parkinsons_care') }}">Parkinson's Care</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('companion_services') }}">Companion Services</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('24_hour_watch') }}">24 Hour Watch</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('respite_care') }}">Respite Care</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('adult_care') }}">Adult Care</a></li>
+              </ul>
+            </div>
             <div><a href="{{ url_for('about') }}" data-text="about">about</a></div>
             <div><a href="#contact" data-text="contact">contact</a></div>
           </div>
@@ -28,24 +47,37 @@
     </nav>
 
     <div class="row justify-content-center">
-      <div class="col-11 col-sm-12">
-        <img id="home-logo" class="img-fluid"
-          src="{{ url_for('static', filename='img/logo.svg') }}" alt="">
-        <h1 id="home-title">Something Great</h1>
-        <h1 id="home-tagline">Make it yours.</h1>
+      <div class="col-11 col-md-8">
+        <!-- <img id="home-logo" class="img-fluid"
+          src="{{ url_for('static', filename='img/image1.png') }}" alt=""> -->
+        <h1 id="home-title">Utah's Premier <span class="text-nowrap">In-Home</span> Caregivers</h1>
+        <!-- <h1 id="home-tagline">Make it yours.</h1> -->
+         <div class="darken">
+          <p>
+            Receive trusted in-home caregiving services in Washington County, Davis
+            County, and Weber County with Like Family Personal Care. Our non-medical
+            home caregivers provide care for senior citizens and adults with chronic health
+            conditions or injuries.
+          </p>
+          <p>
+            Discover our personal care pricing and receive answers to your home care
+            questions 24/7 with one of our friendly care specialists by calling our in-home
+            care helpline below.
+          </p>
+         </div>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center text-center">
       <div class="col col-sm-11">
-        <a href="" class="cta btn">
-          Call to action
+        <a href="tel:+14354148551" class="btn">
+          Call Now (435)-414-8551
         </a>
 
         <div class="home-next">
           <a href="#home-2">
-            <h4>
+            <h5>
               Learn more
-            </h4>
+            </h5>
             <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi
                 bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
@@ -61,17 +93,62 @@
   <div id="home-2" class="home-section">
     <div class="row justify-content-center">
       <div class="col-11 col-sm-10 col-lg-8">
-        <h1 class="mb-4">Section 2 title</h1>
+        <h3 class="mb-4 text-center">Our Services</h3>
+        <p>
+          At LFPC, we devote our careers to preserving and improving the quality of our
+          clients’ lives. Call our helpline now to speak with a care specialist who will
+          help you determine your next best steps, answer any questions you may have about
+          our services, and provide you with the best-fit Utah caregiver for your
+          particular needs.
+        </p>
+        <div class="service-icons row text-center">
+            <div class="col-6 col-md-4">
+            <a href="{{ url_for('alzheimers_care') }}">
+              <img src="{{ url_for('static', filename='img/care.png') }}" class="care-icon img-fluid" alt="">
+              <h5>Alzheimer's Care</h5>
+            </a>
+            </div>
+            <div class="col-6 col-md-4">
+            <a href="{{ url_for('parkinsons_care') }}">
+              <img src="{{ url_for('static', filename='img/care.png') }}" class="care-icon img-fluid" alt="">
+              <h5>Parkinson's Care</h5>
+            </a>
+            </div>
+            <div class="col-6 col-md-4">
+            <a href="{{ url_for('companion_services') }}">
+              <img src="{{ url_for('static', filename='img/care.png') }}" class="care-icon img-fluid" alt="">
+              <h5>Companion Services</h5>
+            </a>
+            </div>
+            <div class="col-6 col-md-4">
+            <a href="{{ url_for('24_hour_watch') }}">
+              <img src="{{ url_for('static', filename='img/care.png') }}" class="care-icon img-fluid" alt="">
+              <h5>24 Hour Watch</h5>
+            </a>
+            </div>
+            <div class="col-6 col-md-4">
+            <a href="{{ url_for('respite_care') }}">
+              <img src="{{ url_for('static', filename='img/care.png') }}" class="care-icon img-fluid" alt="">
+              <h5>Respite Care</h5>
+            </a>
+            </div>
+            <div class="col-6 col-md-4">
+            <a href="{{ url_for('adult_care') }}">
+              <img src="{{ url_for('static', filename='img/care.png') }}" class="care-icon img-fluid" alt="">
+              <h5>Adult Care</h5>
+            </a>
+          </div>
+        </div>
         <div class="text-center">
-          <a class="cta btn mb-2" href="#contact">
+          <a class="btn mb-2" href="#contact">
             Get in touch
           </a>
         </div>
         <div class="home-next">
           <a href="#home-3">
-            <h4>
-              Section 3
-            </h4>
+            <h5>
+              See what others have to say
+            </h5>
             <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-chevron-down"
                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
@@ -82,15 +159,32 @@
     </div>
   </div>
 
-  <div id="home-3" class="home-section inverse">
+  <div id="home-3" class="home-section">
     <div class="row justify-content-center">
       <div class="col-11 col-sm-10 col-lg-8">
-        <h1 class="mb-4">Section 3 title</h1>
+        <h3 class="mb-4 text-center">Testimonials</h3>
+        <p class="lead">
+          <i>"I had a great experience with Like Family! I had spine surgery and being
+          alone was very concerned about getting home from the hospital and then being
+          able to care for myself. Gage, at Like Family, was amazing and exceeded my
+          expectations. His medical knowledge and concern for my comfort relieved a lot of
+          my stress and worry. From helping with food, to making the bed, to keeping an
+          eye on the incision, and even going out to get medicine, I was in very good
+          hands!! Thank you Gage, I'm very grateful for your help and consideration."</i>
+            <strong>&ndash; Bill B.</strong>
+        </p>
+        <div class="mt-4 row justify-content-center">
+          <div class="col col-md-10 col-lg-8">
+            <a href="https://www.care.com/b/l/like-family-home-health-llc/hurricane-ut" class="btn text-center d-block m-auto">
+              See our Care.com client testimonials
+            </a>
+          </div>
+        </div>
         <div class="home-next">
           <a href="#contact">
-            <h4>
+            <h5>
               Have a question?
-            </h4>
+            </h5>
             <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-chevron-down"
                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
@@ -104,7 +198,7 @@
   <div id="contact" class="home-section end">
     <div class="row justify-content-center">
       <div class="col-11 col-md-8">
-        <h1 class="mb-4">Get in touch</h1>
+        <h3 class="mb-4">Get in touch</h3>
 
         <form id="inquiry-form" action="" method="post">
           {{ form.hidden_tag() }}

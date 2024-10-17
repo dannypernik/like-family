@@ -5,7 +5,7 @@
         {% block logo_link %}
           <a href="{{ url_for('index', _anchor='#contact') }}">
         {% endblock logo_link %}
-          <img id="nav-img" src="{{ url_for('static', filename='img/logo.svg') }}">
+          <img id="nav-img" src="{{ url_for('static', filename='img/lf-logo.jpg') }}">
         </a>
       </div>
       <div class="col-3">
@@ -17,7 +17,20 @@
               Menu
             {% endif %}
           </div>
-          <img id="menu-icon" src="{{ url_for('static', filename='img/menu.svg') }}" alt="">
+          <!-- <img id="menu-icon" src="{{ url_for('static', filename='img/menu.svg') }}" alt=""> -->
+          <svg id="menu-icon" viewBox="0 0 295 295" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Artboard" transform="translate(-64.000000, -51.000000)">
+                    <g id="Group" transform="translate(64.000000, 51.000000)">
+                        <circle id="Oval" stroke-width="15" cx="147.5" cy="147.5" r="140"></circle>
+                        <rect id="Rectangle" x="89" y="139" width="117" height="17" rx="7"></rect>
+                        <rect id="Rectangle" x="89" y="81" width="117" height="16" rx="8"></rect>
+                        <rect id="Rectangle" fill="#FFFFFF" x="89" y="198" width="117" height="16" rx="7"></rect>
+                    </g>
+                </g>
+            </g>
+        </svg>
         </a>
       </div>
     </div>
@@ -50,13 +63,13 @@
           </div>
         </a>
       {% endif %}
-      
+
       <a href="{{ url_for('about') }}">
         <div class="menu-link">
           <p>About</p>
         </div>
       </a>
-      
+
       {% block contact_link %}
         <a href="{{ url_for('index', _anchor='contact') }}">
           <div class="menu-link">
@@ -64,7 +77,7 @@
           </div>
         </a>
       {% endblock contact_link %}
-      
+
       {% if current_user.is_authenticated %}
         <a href="{{ url_for('logout') }}">
           <div class="menu-link">
@@ -92,7 +105,7 @@
       <div class="drawer__close" data-drawer-close aria-label="Close Drawer"></div>
     </div>
     <div class="drawer__content">
-      
+
     </div>
   </div>
 </section>
