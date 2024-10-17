@@ -7078,7 +7078,7 @@ input[type=submit] {
   font-family: "Crimson Pro", serif;
   display: block;
   margin: 2rem auto;
-  padding: 0.5rem 2rem;
+  padding: 0.75rem 2rem;
   background-color: #32a873;
   border: 2px solid #32a873;
   border-radius: 3px;
@@ -7434,7 +7434,7 @@ div.message a {
 }
 
 #home-1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/annie-spratt-vY-dUdwUWfs-unsplash.jpg) center bottom no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../img/annie-spratt-vY-dUdwUWfs-unsplash.jpg) center bottom no-repeat;
 }
 
 #home-1 {
@@ -7453,13 +7453,12 @@ div.message a {
 #home-logo {
   position: relative;
   display: block;
-  max-height: 80px;
+  max-height: 70px;
   padding-right: 3rem;
 }
 
 #home-title {
   line-height: 1;
-  text-align: center;
 }
 
 #home-tagline {
@@ -7478,7 +7477,7 @@ div.message a {
   justify-content: space-between;
   background-color: transparent;
   border: none;
-  padding: calc(1rem + 2vw) 0;
+  padding: 4rem 0 2rem;
 }
 .home-nav li {
   list-style: none;
