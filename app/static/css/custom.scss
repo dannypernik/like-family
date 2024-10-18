@@ -115,7 +115,7 @@ a {
 
   &:before {
     display: block;
-    font-weight: 600;
+    font-weight: 800;
     content: attr(data-text);
     height: 0;
     overflow: hidden;
@@ -137,7 +137,7 @@ input[type="submit"] {
   font-family: $title-font;
   display: block;
   margin: 2rem auto;
-  padding: 0.5rem 2rem;
+  padding: 0.75rem 2rem;
   background-color: $primary-color;
   border: 2px solid $primary-color;
   border-radius: 3px;
@@ -164,6 +164,11 @@ input[type="submit"] {
     background-color: transparent;
     font-weight: 400;
     width: fit-content;
+
+    &:hover {
+      background-color: $secondary-color;
+      color: white;
+    }
   }
 
   &.highlight {
@@ -358,8 +363,8 @@ select {
     border-color: $secondary-color;
 
     &:hover {
-      background-color: lighten($secondary-color, 5%);
-      border-color: lighten($secondary-color, 5%);
+      background-color: lighten($secondary-color, 7%);
+      border-color: lighten($secondary-color, 7%);
     }
   }
 }
@@ -419,16 +424,21 @@ div.message {
 
 .dropdown-toggle {
   padding: 1rem 0;
+
+  &::after {
+    position: absolute;
+    right: 1.5rem;
+    top: 2.9rem;
+    margin-right: 0.25rem;
+    vertical-align: 0.1rem;
+  }
 }
 
 .dropdown-menu {
   background-color: $secondary-color;
   // color: darken($secondary-color, 15%);
   margin-top: 1rem;
-}
-
-.dropdown-toggle::after {
-  margin-left: 0.55em;
+  width: 111%;
 }
 
 #menu-title {
@@ -478,6 +488,10 @@ div.message {
 
 .drawer__content a {
   display: inline;
+
+  &:hover {
+    font-weight: 600;
+  }
 }
 
 .drawer__close::before, .drawer__close::after {
@@ -489,7 +503,6 @@ div.message {
   height: 60px;
   border-bottom: 1px solid white;
   color: white;
-  transition: 0.3s;
 
   &:hover {
     background-color: lighten($primary-color, 15%);
@@ -516,7 +529,8 @@ div.message {
 // Home page
 
 #home-1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/annie-spratt-vY-dUdwUWfs-unsplash.jpg) center bottom no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../img/annie-spratt-vY-dUdwUWfs-unsplash.jpg) center top no-repeat;
+  width: 100%;
 }
 
 // #home-3 {
@@ -530,6 +544,26 @@ div.message {
   overflow: auto;
 }
 
+#home-logo {
+  position: relative;
+  display: block;
+  //margin: 3rem auto;
+  // height: calc(100px + 3vw);
+  max-height: 70px;
+  padding-right: 3rem;
+}
+
+#home-title {
+  line-height: 1;
+  margin-top: 10rem;
+}
+
+#home-tagline {
+  margin-top: 2rem;
+  font-size: calc(1.75rem + 1vw);
+  font-weight: 700;
+}
+
 // Mobile backgrounds //
 @media screen and (max-width: 575px) {
   #home-1,
@@ -538,24 +572,12 @@ div.message {
   }
 }
 
-#home-logo {
-  position: relative;
-  display: block;
-  //margin: 3rem auto;
-  // height: calc(100px + 3vw);
-  max-height: 80px;
-  padding-right: 3rem;
-}
+// Small and medium screens //
+@media screen and (max-width: 767px) {
 
-#home-title {
-  line-height: 1;
-  text-align: center;
-}
-
-#home-tagline {
-  margin-top: 2rem;
-  font-size: calc(1.75rem + 1vw);
-  font-weight: 700;
+  #home-title {
+    margin-top: 2rem;
+  }
 }
 
 .darken {
@@ -568,7 +590,7 @@ div.message {
   justify-content: space-between;
   background-color: transparent;
   border: none;
-  padding: calc(1rem + 2vw) 0;
+  padding: 4rem 0 2rem;
 
   li {
     list-style: none;
@@ -576,25 +598,28 @@ div.message {
 
   a {
     color: white;
-    font-size: 2rem;
+    font-family: $title-font;
+    font-weight: 600;
+    font-size: 3rem;
     text-decoration: none;
     text-transform: capitalize;
 
-    &:hover,
-    &:focus {
-      font-weight: 600;
+    &:hover {
+      font-weight: 800;
     }
 
     &.dropdown-item {
+      font-family: $body-font;
       font-size: $body-font-size;
+      font-weight: 400;
       color: white;
+      padding: 0 2rem;
 
       &:hover,
       &:focus {
-        font-weight: 400;
+        font-weight: 600;
         background-color: lighten($primary-color, 15%);
-        color: white;
-    }
+      }
     }
   }
 }
