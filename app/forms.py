@@ -14,8 +14,8 @@ def validate_email(self, email):
 
 
 class ContactForm(FlaskForm):
-    contact_type = SelectField('I need care for:', choices=[('other','My loved one'),('self','Myself')])
-    hours_needed = SelectField('Hours per week:', choices=[('<20','Less than 20'),('20-40','20-40'),('40+','Over 40')])
+    contact_type = SelectField('I need care for:', choices=[('My loved one','My loved one'),('Myself','Myself')])
+    hours_needed = SelectField('Hours per week:', choices=[('Less than 20','Less than 20'),('20-40','20-40'),('Over 40','Over 40')])
     name = StringField('Your name', render_kw={"placeholder": "Your name"}, \
         validators=[InputRequired()])
     phone = StringField('Your phone', render_kw={"placeholder": "Your phone number"})
