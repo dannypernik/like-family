@@ -11,6 +11,18 @@
       We have received your message and will get back to you soon. You are
       welcome to reply to this email if you wish to add further details.
     </p>
-    <p style="white-space: pre-wrap;">Your message:<br/>{{ message }}</p>
+    <p>
+      Care needed for {{ data['contact_type'] }}<br>
+      Hours needed: {{ data['hours_needed'] }}<br>
+      Services needed:
+      <ul>
+        {% for service in data['services_needed'] %}
+          <li>{{ service }}</li>
+        {% endfor %}
+      </ul>
+    </p>
+    <p style="white-space: pre-wrap;">
+      Additional details: {{ data['message'] }}
+    </p>
   </body>
 </html>

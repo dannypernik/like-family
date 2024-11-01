@@ -7040,12 +7040,12 @@ h4,
 
 h5,
 .h5 {
-  font-size: calc(1.6rem + 0.7vw);
+  font-size: calc(1.8rem + 0.5vw);
 }
 
 h6,
 .h6 {
-  font-size: calc(1.4rem + 0.25vw);
+  font-size: calc(1.8rem + 0.25vw);
 }
 
 a {
@@ -7163,14 +7163,13 @@ input[type=submit].alert:hover {
 
 input,
 textarea {
-  font-size: 1.6rem;
   line-height: 2.5rem;
   padding: 1rem;
   border: none;
   border-bottom: 1px solid #999;
   width: 100%;
   outline: none;
-  color: #32a873;
+  color: #0a6bc1;
 }
 input:focus,
 textarea:focus {

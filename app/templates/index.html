@@ -300,8 +300,46 @@
         <h3 class="mb-4">Get in touch</h3>
 
         <form id="inquiry-form" action="" method="post">
-          {{ form.hidden_tag() }}
-          <p class="mb-3">{{ form.first_name }}</p>
+          <div class="row align-items-end mb-3">
+            <div class="col-12 col-xl-5">
+              {{ form.hidden_tag() }}
+              {{ form.contact_type.label(class="h6 me-2") }}
+              {{ form.contact_type }}
+            </div>
+            <div class="col-12 col-xl-7">
+              {{ form.hours_needed.label(class="h6 me-2") }}
+              {{ form.hours_needed }}
+            </div>
+            <div class="mt-2 col-12 col-lg-5">
+              <h6>Services needed:</h6>
+              <input type="checkbox" value="Bathing" id="bathing" name="services_needed">
+              <label for="bathing">Bathing</label>
+              <input type="checkbox" value="Dressing" id="dressing" name="services_needed">
+              <label for="dressing">Dressing</label>
+              <input type="checkbox" value="Medication reminder" id="medication_reminder" name="services_needed">
+              <label for="medication_reminder">Medication reminders</label>
+              <input type="checkbox" value="Toileting" id="toileting" name="services_needed">
+              <label for="toileting">Toileting</label>
+              <input type="checkbox" value="Eating/Meal prep" id="eating_meal_prep" name="services_needed">
+              <label for="eating_meal_prep">Eating/Meal prep</label>
+            </div>
+            <div class="col-12 col-lg-7">
+              <input type="checkbox" value="Transportation" id="transportation" name="services_needed">
+              <label for="transportation">Transportation</label>
+              <input type="checkbox" value="Light housekeeping" id="light_housekeeping" name="services_needed">
+              <label for="light_housekeeping">Light housekeeping</label>
+              <input type="checkbox" value="Shopping" id="shopping" name="services_needed">
+              <label for="shopping">Shopping</label>
+              <input type="checkbox" value="Companion care" id="companion_care" name="services_needed">
+              <label for="companion_care">Companion care</label>
+              <input type="checkbox" value="Bathing/Hygiene" id="bathing_hygiene" name="services_needed">
+              <label for="bathing_hygiene">Bathing/Hygiene</label>
+              <input type="checkbox" value="Other" id="other" name="services_needed">
+              <label for="other">Other (please describe below)</label>
+            </div>
+          </div>
+
+          <p class="mb-3">{{ form.name }}</p>
           <p class="mb-3">{{ form.email }}</p>
           <p class="mb-3">{{ form.phone }}</p>
           <p class="mb-3">{{ form.message(rows='4') }}</p>

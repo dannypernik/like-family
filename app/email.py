@@ -7,7 +7,7 @@ import datetime
 from dateutil.parser import parse
 
 
-def send_contact_email(user, message):
+def send_contact_email(user, data):
     api_key = app.config['MAILJET_KEY']
     api_secret = app.config['MAILJET_SECRET']
     mailjet = Client(auth=(api_key, api_secret), version='v3.1')
@@ -25,8 +25,8 @@ def send_contact_email(user, message):
                 ],
                 "Subject": "Message from " + user.first_name,
                 "ReplyTo": { "Email": user.email },
-                "HTMLPart": render_template('email/contact-email.html',
-                                         user=user, message=message)
+                "HTMLPart": render_template('email/contact-email.html', user=user, data=data),
+                "TextPart": render_template('email/contact-email.txt', user=user, data=data)
             }
         ]
     }
@@ -34,14 +34,14 @@ def send_contact_email(user, message):
     result = mailjet.send.create(data=data)
 
     if result.status_code == 200:
-        send_confirmation_email(user, message)
+        send_confirmation_email(user, data)
         print("Contact email sent from " + user.email)
     else:
         print("Contact email from " + user.email + " failed with code " + result.status_code)
     return result.status_code
 
 
-def send_confirmation_email(user, message):
+def send_confirmation_email(user, data):
     api_key = app.config['MAILJET_KEY']
     api_secret = app.config['MAILJET_SECRET']
     mailjet = Client(auth=(api_key, api_secret), version='v3.1')
@@ -58,8 +58,8 @@ def send_confirmation_email(user, message):
                     }
                 ],
                 "Subject": "Confirmation email",
-                "HTMLPart": render_template('email/confirmation-email.html',
-                                         user=user, message=message)
+                "HTMLPart": render_template('email/confirmation-email.html', user=user, data=data),
+                "TextPart": render_template('email/confirmation-email.txt', user=user, data=data)
             }
         ]
     }

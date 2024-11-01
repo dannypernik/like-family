@@ -47,12 +47,19 @@ def index():
         if hcaptcha.verify():
             pass
         else:
-            flash('A computer has questioned your humanity. Please try again.', 'error')
+            flash('hCapthca failed. Please try again.', 'error')
             return redirect(url_for('home'))
-        user = User(first_name=form.first_name.data, email=form.email.data, phone=form.phone.data)
-        message = form.message.data
-        subject = form.subject.data
-        email_status = send_contact_email(user, message)
+        user = User(first_name=form.name.data, email=form.email.data, phone=form.phone.data)
+
+        services_needed = request.form.getlist('services_needed')
+
+        data = {
+            'contact_type': form.contact_type.data,
+            'hours_needed': form.hours_needed.data,
+            'services_needed': services_needed,
+            'message': form.message.data
+        }
+        email_status = send_contact_email(user, data)
         if email_status == 200:
             flash('Please check ' + user.email + ' for a confirmation email. Thank you for reaching out!')
             return redirect(url_for('index', _anchor="home"))

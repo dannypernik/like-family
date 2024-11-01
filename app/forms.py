@@ -14,13 +14,15 @@ def validate_email(self, email):
 
 
 class ContactForm(FlaskForm):
-    first_name = StringField('First name', render_kw={"placeholder": "First name"}, \
+    contact_type = SelectField('I need care for:', choices=[('other','My loved one'),('self','Myself')])
+    hours_needed = SelectField('Hours per week:', choices=[('<20','Less than 20'),('20-40','20-40'),('40+','Over 40')])
+    name = StringField('Your name', render_kw={"placeholder": "Your name"}, \
         validators=[InputRequired()])
-    email = StringField('Email address', render_kw={"placeholder": "Email address"}, \
+    phone = StringField('Your phone', render_kw={"placeholder": "Your phone number"})
+    email = StringField('Your email', render_kw={"placeholder": "Your email address"}, \
         validators=[InputRequired(), Email(message="Please enter a valid email address")])
-    phone = StringField('Phone number (optional)', render_kw={"placeholder": "Phone number (optional)"})
-    subject = StringField('Subject', render_kw={'placeholder': 'Subject'}, default='Message')
-    message = TextAreaField('Message', render_kw={"placeholder": "Message"}, \
+    message = TextAreaField('Additional details',
+        render_kw={"placeholder": "Please provide any additional details regarding the care required"},
         validators=[InputRequired()])
     submit = SubmitField('Send message')
 

@@ -9,6 +9,16 @@
     <p>{{ user.first_name }}
       ({{ user.email }}{% if user.phone %}, {{ user.phone }}{% endif %})
       has sent you a message:</p>
-    <p style="white-space: pre-wrap;">{{ message }}</p>
+    <p style="white-space: pre-wrap;">{{ data['message'] }}</p>
+    <p>
+      <strong>Help needed for: </strong> {{ data['contact_type'] }}<br>
+      <strong>Hours needed: </strong> {{ data['hours_needed'] }}<br>
+      <strong>Services needed:</strong>
+      <ul>
+        {% for service in data['services_needed'] %}
+          <li>{{ service }}</li>
+        {% endfor %}
+      </ul>
+    </p>
   </body>
 </html>
