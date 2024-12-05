@@ -1,10 +1,10 @@
 Hi {{ user.first_name }}, thank you for contacting us. We have received your message and will get back to you soon. You are welcome to reply to this email if you wish to add further details.
 
-Care needed for {{ data['contact_type'] }}
-Hours needed: {{ data['hours_needed'] }}
+Care needed for {{ form_data['contact_type'] }}
+Hours needed: {{ form_data['hours_needed'] }}
 Services needed:
-{% for service in data['services_needed'] %}
+{% for service in form_data['services_needed'] %}
   - {{ service }}
 {% endfor %}
 
-Additional details: {{ data['message'] }}
+Additional details: {{ form_data['message'] }}

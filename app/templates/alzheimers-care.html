@@ -1,5 +1,20 @@
-{% extends 'base.html' %}
+{% extends '_page-base.html' %}
 
-{% block content %}
+{% block image %}
+  <img src="{{ url_for('static', filename='img/micheile-henderson-PpZasS086os-unsplash.jpg') }}" class="img-fluid page-img">
+{% endblock image %}
 
-{% endblock content %}
+{% block text %}
+  <h3>Alzheimer's Care</h3>
+
+  <p>
+    There are few challenges as great as seeing a loved one progress through the stages of
+    Alzheimer's disease. The emotional toll that this disease can take on a family cannot be
+    understated, and the responsibility of caring for a loved one should not primarily fall on
+    one person's shoulders.
+  </p>
+  <p>
+    We are here to help. We provide compassionate care that allows your loved one to remain
+    in the comfort of their own home while receiving the care they need.
+  </p>
+{% endblock text %}

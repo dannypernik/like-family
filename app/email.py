@@ -7,7 +7,7 @@ import datetime
 from dateutil.parser import parse
 
 
-def send_contact_email(user, data):
+def send_contact_email(user, form_data):
     api_key = app.config['MAILJET_KEY']
     api_secret = app.config['MAILJET_SECRET']
     mailjet = Client(auth=(api_key, api_secret), version='v3.1')
@@ -25,8 +25,8 @@ def send_contact_email(user, data):
                 ],
                 "Subject": "Message from " + user.first_name,
                 "ReplyTo": { "Email": user.email },
-                "HTMLPart": render_template('email/contact-email.html', user=user, data=data),
-                "TextPart": render_template('email/contact-email.txt', user=user, data=data)
+                "HTMLPart": render_template('email/contact-email.html', user=user, form_data=form_data),
+                "TextPart": render_template('email/contact-email.txt', user=user, form_data=form_data)
             }
         ]
     }
@@ -34,14 +34,14 @@ def send_contact_email(user, data):
     result = mailjet.send.create(data=data)
 
     if result.status_code == 200:
-        send_confirmation_email(user, data)
+        send_confirmation_email(user, form_data)
         print("Contact email sent from " + user.email)
     else:
         print("Contact email from " + user.email + " failed with code " + result.status_code)
     return result.status_code
 
 
-def send_confirmation_email(user, data):
+def send_confirmation_email(user, form_data):
     api_key = app.config['MAILJET_KEY']
     api_secret = app.config['MAILJET_SECRET']
     mailjet = Client(auth=(api_key, api_secret), version='v3.1')
@@ -58,8 +58,8 @@ def send_confirmation_email(user, data):
                     }
                 ],
                 "Subject": "Confirmation email",
-                "HTMLPart": render_template('email/confirmation-email.html', user=user, data=data),
-                "TextPart": render_template('email/confirmation-email.txt', user=user, data=data)
+                "HTMLPart": render_template('email/confirmation-email.html', user=user, form_data=form_data),
+                "TextPart": render_template('email/confirmation-email.txt', user=user, form_data=form_data)
             }
         ]
     }

@@ -1,24 +1,20 @@
 <div class="row sticky-header justify-content-center">
-  <div class="col-10">
+  <div class="col-12 col-md-10">
     <div class="row">
-      <div class="col-9">
+      <div class="col-6">
         {% block logo_link %}
           <a href="{{ url_for('index', _anchor='#contact') }}">
         {% endblock logo_link %}
-          <img id="nav-img" src="{{ url_for('static', filename='img/lf-logo.jpg') }}">
+          <img id="nav-img" class="img-fluid" src="{{ url_for('static', filename='img/lf-logo.jpg') }}">
         </a>
       </div>
-      <div class="col-3">
+      <div class="col-6">
         <a id="menu-btn" data-drawer-trigger aria-controls="site-menu" aria-expanded="false">
-          <div id="menu-title" class="d-none d-sm-block">
-            {% if current_user.is_authenticated %}
-              {{ current_user.first_name }} {{ current_user.last_name }}
-            {% else %}
-              Menu
-            {% endif %}
+          <div id="menu-title">
+            Menu
           </div>
           <!-- <img id="menu-icon" src="{{ url_for('static', filename='img/menu.svg') }}" alt=""> -->
-          <svg id="menu-icon" viewBox="0 0 295 295" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <svg id="menu-icon" class="me-2 me-sm-0" viewBox="0 0 295 295" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="Artboard" transform="translate(-64.000000, -51.000000)">
@@ -56,41 +52,27 @@
           <p>Home</p>
         </div>
       </a>
-      {% if current_user.is_admin %}
-        <a href="{{ url_for('users') }}">
-          <div class="menu-link">
-            <p>Users</p>
-          </div>
-        </a>
-      {% endif %}
+
+      <a href="#" data-drawer-trigger aria-controls="nested-menu" data-drawer-close>
+        <div class="menu-link">
+          <p>Our Services</p>
+        </div>
+      </a>
 
       <a href="{{ url_for('about') }}">
         <div class="menu-link">
-          <p>About</p>
+          <p>About us</p>
         </div>
       </a>
 
       {% block contact_link %}
         <a href="{{ url_for('index', _anchor='contact') }}">
           <div class="menu-link">
-            <p>Contact</p>
+            <p>Get in touch</p>
           </div>
         </a>
       {% endblock contact_link %}
 
-      {% if current_user.is_authenticated %}
-        <a href="{{ url_for('logout') }}">
-          <div class="menu-link">
-            <p>Log out</p>
-          </div>
-        </a>
-      {% else %}
-        <a href="{{ url_for('signin') }}">
-          <div class="menu-link">
-            <p>Sign in</p>
-          </div>
-        </a>
-      {% endif %}
     </div>
   </div>
 </section>
@@ -105,7 +87,41 @@
       <div class="drawer__close" data-drawer-close aria-label="Close Drawer"></div>
     </div>
     <div class="drawer__content">
+      <a href="{{ url_for('alzheimers_care') }}">
+        <div class="menu-link">
+          <p>Alzheimer's Care</p>
+        </div>
+      </a>
 
+      <a href="{{ url_for('parkinsons_care') }}">
+        <div class="menu-link">
+          <p>Parkinson's Care</p>
+        </div>
+      </a>
+
+      <a href="{{ url_for('companion_services') }}">
+        <div class="menu-link">
+          <p>Companion Services</p>
+        </div>
+      </a>
+
+      <a href="{{ url_for('24_hour_watch') }}">
+        <div class="menu-link">
+          <p>24 Hour Watch</p>
+        </div>
+      </a>
+
+      <a href="{{ url_for('respite_care') }}">
+        <div class="menu-link">
+          <p>Respite Care</p>
+        </div>
+      </a>
+
+      <a href="{{ url_for('adult_care') }}">
+        <div class="menu-link">
+          <p>Adult Care</p>
+        </div>
+      </a>
     </div>
   </div>
 </section>

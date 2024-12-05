@@ -39,7 +39,7 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
   -ms-overflow-style: none;
@@ -47,6 +47,10 @@ body {
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+p {
+  margin-bottom: 2rem;
 }
 
 .content {
@@ -192,7 +196,7 @@ input[type="submit"] {
     font-size: $lead-font-size;
   }
 
-  .row:hover > div > .btn.edit {
+  .row:hover>div>.btn.edit {
     display: inline-block;
   }
 
@@ -231,7 +235,7 @@ input[type="checkbox"] {
   opacity: 0;
   width: 0;
 
-  + label {
+  +label {
     display: block;
     position: relative;
     padding-left: 3rem;
@@ -251,11 +255,11 @@ input[type="checkbox"] {
   }
 
   &:checked {
-    + label::before {
+    +label::before {
       background-color: $primary-color;
     }
 
-    + label::after {
+    +label::after {
       content: "";
       position: absolute;
       top: 4px;
@@ -268,7 +272,7 @@ input[type="checkbox"] {
     }
   }
 
-  &:focus + label::before {
+  &:focus+label::before {
     box-shadow: 0 0px 8px $primary-color;
   }
 }
@@ -277,7 +281,7 @@ input[type="radio"] {
   opacity: 0;
   width: 0;
 
-  + label {
+  +label {
     position: relative;
     display: inline-block;
     padding-left: 0.5rem;
@@ -287,7 +291,8 @@ input[type="radio"] {
       content: "";
       position: absolute;
       display: inline-block;
-      left: -2.2rem; /* This will be adjusted */
+      left: -2.2rem;
+      /* This will be adjusted */
       top: 0.1rem;
       width: 2rem;
       height: 2rem;
@@ -309,13 +314,13 @@ input[type="radio"] {
   }
 
   &:checked {
-    + label::after {
+    +label::after {
       background: $primary-color;
     }
   }
 
   &:focus {
-    + label::before {
+    +label::before {
       box-shadow: 0 0px 8px $primary-color;
     }
   }
@@ -373,6 +378,10 @@ select {
   height: auto;
 }
 
+.page-img {
+  border-radius: 2.5rem 2.5rem 0 0;
+}
+
 div.message {
   padding: 0.5rem 0;
   text-align: center;
@@ -380,13 +389,13 @@ div.message {
   font-size: 1.5rem;
   margin-bottom: 0;
   color: $message-color;
-  background-color: lighten($message-color, 90%);
-  border-color: lighten($message-color, 90%);
+  background-color: #c2ddfb;
+  border-color: #c2ddfb;
 
   &.error {
     color: $alert-color;
-    background-color: lighten($alert-color, 95%);
-    border-color: lighten($alert-color, 95%);
+    background-color: #ffd8d8;
+    border-color: #ffd8d8;
   }
 
   a {
@@ -396,7 +405,7 @@ div.message {
 }
 
 .title-margin {
-  padding-top: calc(2rem + 3vw);
+  padding-top: calc(2rem + 1vw);
 }
 
 #contact {
@@ -416,9 +425,12 @@ div.message {
 }
 
 #nav-img {
-  height: 6rem;
-  margin: 1.5rem 0;
+  max-height: 6rem;
+  height: 100%;
   max-width: 100%;
+  margin: 0;
+  object-fit: contain;
+  display: block;
 }
 
 .dropdown-toggle {
@@ -451,7 +463,7 @@ div.message {
   line-height: 2.4rem;
   display: flex;
   justify-content: flex-end;
-  margin: 30px 0 30px auto;
+  margin: calc(30px + 0.5vw) 0 calc(30px - 0.5vw) auto;
   color: $body-font-color;
   text-decoration: none;
   cursor: pointer;
@@ -465,6 +477,7 @@ div.message {
   rect {
     fill: $secondary-color;
   }
+
   circle {
     stroke: $secondary-color;
   }
@@ -473,15 +486,18 @@ div.message {
 #menu-icon {
   height: 26px;
   padding-left: 15px;
+
   rect {
     fill: $body-font-color;
   }
+
   circle {
     stroke: $body-font-color;
   }
 }
 
-.drawer__content, .drawer__header {
+.drawer__content,
+.drawer__header {
   background-color: $secondary-color;
 }
 
@@ -493,7 +509,8 @@ div.message {
   }
 }
 
-.drawer__close::before, .drawer__close::after {
+.drawer__close::before,
+.drawer__close::after {
   background-color: white;
   height: 3px;
 }
@@ -536,7 +553,8 @@ div.message {
 //   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/annie-spratt-1zGoJydy0DM-unsplash.jpg) center center no-repeat;
 // }
 
-#home-1 { //#home-3 {
+#home-1 {
+  //#home-3 {
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
@@ -565,6 +583,7 @@ div.message {
 
 // Mobile backgrounds //
 @media screen and (max-width: 575px) {
+
   #home-1,
   #home-3 {
     background-attachment: scroll;
@@ -671,81 +690,74 @@ div.message {
 // Testimonials slider
 
 .chevron {
-	position: absolute;
-	margin: auto 0;
-	top: 0;
-	bottom: 8rem;
-	right: 0;
-	height: 25px;
-	display: inline-block;
-	cursor: pointer;
-	outline: none;
+  position: absolute;
+  margin: auto 0;
+  top: 0;
+  bottom: 8rem;
+  right: 0;
+  height: 25px;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
 
-	.circle {
-		fill: $secondary-color;
-		transition: 0.2s fill ease-in;
-	}
+  .circle {
+    fill: $secondary-color;
+    transition: 0.2s fill ease-in;
+  }
 
-	&.left {
-		transform: rotate(180deg);
-		left: 0;
-	}
+  &.left {
+    transform: rotate(180deg);
+    left: 0;
+  }
 
-	&:hover {
-		.circle {
-			fill: $primary-color;
-		}
+  &:hover {
+    .circle {
+      fill: $primary-color;
+    }
 
-		.arrow {
-			fill: white;
-		}
-	}
+    .arrow {
+      fill: white;
+    }
+  }
 }
 
 .tns-nav {
-	text-align: center;
+  text-align: center;
 
-	button {
-		display: inline-block;
-		margin: 5px;
-		padding: 0;
-		border: none;
-		height: 10px;
-		width: 10px;
-		border-radius: 50%;
-		background-color: #ddd;
+  button {
+    display: inline-block;
+    margin: 5px;
+    padding: 0;
+    border: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
 
-		&:hover {
-			background-color: #ddd;
-		}
+    &:hover {
+      background-color: #ddd;
+    }
 
-		&.tns-nav-active {
-			background-color: $secondary-color;
-		}
-	}
+    &.tns-nav-active {
+      background-color: $secondary-color;
+    }
+  }
 }
 
-.tns-outer > button {
-	margin: 0 auto;
-	padding-top: 0;
-	background-color: transparent;
-	border: none;
-	font-family: sans-serif;
-	font-size: 2.5rem;
+.tns-outer>button {
+  margin: 0 auto;
+  padding-top: 0;
+  background-color: transparent;
+  border: none;
+  font-family: sans-serif;
+  font-size: 2.5rem;
 
-	&:hover {
-		background-color: transparent;
-	}
+  &:hover {
+    background-color: transparent;
+  }
 }
 
 // About page //
-
-.profile-img {
-  display: block;
-  border-radius: 100%;
-  margin: 0 auto 2rem;
-  max-height: 155px;
-}
 
 .white {
   color: white;

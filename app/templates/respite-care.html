@@ -1,5 +1,26 @@
-{% extends 'base.html' %}
+{% extends '_page-base.html' %}
 
-{% block content %}
+{% block image %}
+  <img src="{{ url_for('static', filename='img/isaac-quesada-FiIgXyC3t84-unsplash.jpg') }}" class="img-fluid page-img">
+{% endblock image %}
 
-{% endblock content %}
+{% block text %}
+  <h3>Respite Care</h3>
+  <p>
+    Not everyone needs permanent or long term care. Respite care at Like Family Personal
+    Care is a care program designed for primary caregivers in Washington County & Weber
+    County, Utah who need a short-term break from caregiving to tend to personal matters.
+  </p>
+  <p>
+    The length of respite care is determined by the specific situations and conditions of
+    our patients. Respite caregivers typically help our patients with a wide range of
+    tasks, including but not limited to medication management, cooking, cleaning, pet
+    care, and personal care.
+  </p>
+  <p>
+    With Like Family, you can rest assured that we will treat your loved one with the
+    compassion and care that we provide our very own family members. Our expert family
+    caregivers are available 24/7 to help your loved one maintain the highest quality of
+    life possible.
+  </p>
+{% endblock text %}

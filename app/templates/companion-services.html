@@ -1,5 +1,22 @@
-{% extends 'base.html' %}
+{% extends '_page-base.html' %}
 
-{% block content %}
+{% block image %}
+  <img src="{{ url_for('static', filename='img/federico-giampieri-R0lftflMYPw-unsplash.jpg') }}" class="img-fluid page-img">
+{% endblock image %}
 
-{% endblock content %}
+{% block text %}
+  <h3>Companion Services</h3>
+
+  <p>
+    Even though you may want to be able to do it all for everyone in your life, sometimes
+    it's just not possible. Sometimes to give your loved one the care they deserve, you
+    need additional support.
+  </p>
+
+  <p>
+    We are here to help. If your loved one needs help with transportation to and from
+    activities, shopping, or someone to help them pursue their favorite hobbies, let us
+    know. Our seasoned companion caregivers are trained to provide the best care to those
+    in need of daily living tasks and good old-fashioned camaraderie.
+  </p>
+{% endblock text %}

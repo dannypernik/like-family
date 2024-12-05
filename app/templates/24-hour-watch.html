@@ -1,5 +1,33 @@
-{% extends 'base.html' %}
+{% extends '_page-base.html' %}
 
-{% block content %}
+{% block image %}
+  <img src="{{ url_for('static', filename='img/.jpg') }}" class="img-fluid page-img">
+{% endblock image %}
 
-{% endblock content %}
+{% block text %}
+  <h3>24 Hour Watch</h3>
+
+  <p>
+    While most personal care agencies only offer daytime services or live-in services,
+    Like Family Personal Care saw the need to provide last-minute round-the-clock home
+    senior care services for older adults and aging loved ones.
+  </p>
+
+  <p>
+    Our certified nursing assistants in Washington County, David County, and Weber County,
+    Utah are available 24/7 if you or your loved one needs quick and affordable
+    supervision. Whether for one day or longer, we tailor our services to your family and
+    loved ones' specific needs.
+  </p>
+
+  <p>
+    Respite care gives families invaluable time to rest and tend to any other personal
+    needs. With intermittent rest, caregiving family members are able to maintain their
+    health and maintain vital balance. That way, they can give their best to their loved
+    ones.
+  </p>
+
+  <p>
+    We serve adults and children with special needs and other ailments as well as seniors in Utah.
+  </p>
+{% endblock text %}

@@ -1,5 +1,30 @@
-{% extends 'base.html' %}
+{% extends '_page-base.html' %}
 
-{% block content %}
+{% block image %}
+  <img src="{{ url_for('static', filename='img/angelina-litvin-52R7t7x8CPI-unsplash.jpg') }}" class="img-fluid page-img">
+{% endblock image %}
 
-{% endblock content %}
+{% block text %}
+  <h3>Parkinson's Care</h3>
+
+  <p>
+    In-home caregivers at Like Family Personal Care provide support to those living with
+    Parkinson's Disease in Utah. We love empowering our clients to live
+    independently.
+  </p>
+
+  <p>
+    Whether you are in need of long-term and short-term Parkinson's Disease care, Like
+    Family Personal Care can help. We provide affordable in-home care to people in all
+    parts of Washington County, UT, Davis County, UT, and Weber County, UT. Our senior
+    care services for patients with Parkinson's may include respite care, 24-hour care, or
+    long-term plans designed specifically with your loved one in mind.
+  </p>
+
+  <p>
+    Sometimes it's difficult for a family member to care for their loved one to the extent
+    that they want to. It isn't wrong to ask for support. Get in touch with us today to
+    learn more about how we can help you and your loved one.
+  </p>
+{% endblock text %}
+

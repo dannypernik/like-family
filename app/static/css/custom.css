@@ -6984,13 +6984,17 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
   -ms-overflow-style: none;
 }
 body::-webkit-scrollbar {
   display: none;
+}
+
+p {
+  margin-bottom: 2rem;
 }
 
 .content {
@@ -7230,7 +7234,8 @@ input[type=radio] + label::before {
   content: "";
   position: absolute;
   display: inline-block;
-  left: -2.2rem; /* This will be adjusted */
+  left: -2.2rem;
+  /* This will be adjusted */
   top: 0.1rem;
   width: 2rem;
   height: 2rem;
@@ -7302,6 +7307,10 @@ select {
   height: auto;
 }
 
+.page-img {
+  border-radius: 2.5rem 2.5rem 0 0;
+}
+
 div.message {
   padding: 0.5rem 0;
   text-align: center;
@@ -7309,13 +7318,13 @@ div.message {
   font-size: 1.5rem;
   margin-bottom: 0;
   color: #004085;
-  background-color: white;
-  border-color: white;
+  background-color: #c2ddfb;
+  border-color: #c2ddfb;
 }
 div.message.error {
   color: #850017;
-  background-color: white;
-  border-color: white;
+  background-color: #ffd8d8;
+  border-color: #ffd8d8;
 }
 div.message a {
   text-decoration: underline;
@@ -7323,7 +7332,7 @@ div.message a {
 }
 
 .title-margin {
-  padding-top: calc(2rem + 3vw);
+  padding-top: calc(2rem + 1vw);
 }
 
 #contact {
@@ -7340,9 +7349,12 @@ div.message a {
 }
 
 #nav-img {
-  height: 6rem;
-  margin: 1.5rem 0;
+  max-height: 6rem;
+  height: 100%;
   max-width: 100%;
+  margin: 0;
+  object-fit: contain;
+  display: block;
 }
 
 .dropdown-toggle {
@@ -7373,7 +7385,7 @@ div.message a {
   line-height: 2.4rem;
   display: flex;
   justify-content: flex-end;
-  margin: 30px 0 30px auto;
+  margin: calc(30px + 0.5vw) 0 calc(30px - 0.5vw) auto;
   color: #0a6bc1;
   text-decoration: none;
   cursor: pointer;
@@ -7404,7 +7416,8 @@ div.message a {
   stroke: #0a6bc1;
 }
 
-.drawer__content, .drawer__header {
+.drawer__content,
+.drawer__header {
   background-color: #2392f4;
 }
 
@@ -7415,7 +7428,8 @@ div.message a {
   font-weight: 600;
 }
 
-.drawer__close::before, .drawer__close::after {
+.drawer__close::before,
+.drawer__close::after {
   background-color: white;
   height: 3px;
 }
@@ -7617,13 +7631,6 @@ div.message a {
 }
 .tns-outer > button:hover {
   background-color: transparent;
-}
-
-.profile-img {
-  display: block;
-  border-radius: 100%;
-  margin: 0 auto 2rem;
-  max-height: 155px;
 }
 
 .white {

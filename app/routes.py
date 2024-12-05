@@ -38,35 +38,83 @@ def admin_required(f):
             return redirect(login_url('signin', next_url=request.url))
     return wrap
 
+def handle_contact_form(form, redirect_page):
+    """Helper function to process contact form submissions"""
+    if not hcaptcha.verify():
+        flash('hCapthca failed. Please try again.', 'error')
+        return redirect(url_for(redirect_page))
+
+    user = User(
+        first_name=form.name.data,
+        email=form.email.data,
+        phone=form.phone.data
+    )
+
+    services_needed = request.form.getlist('services_needed')
+    data = {
+        'contact_type': form.contact_type.data,
+        'hours_needed': form.hours_needed.data,
+        'services_needed': services_needed,
+        'message': form.message.data
+    }
+
+    email_status = send_contact_email(user, data)
+    if email_status == 200:
+        flash('Please check ' + user.email + ' for a confirmation email. Thank you for reaching out!')
+        return redirect(url_for(redirect_page))
+    else:
+        flash('Email failed to send, please contact ' + hello, 'error')
+        return redirect(url_for(redirect_page))
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = ContactForm()
     if form.validate_on_submit():
-        if hcaptcha.verify():
-            pass
-        else:
-            flash('hCapthca failed. Please try again.', 'error')
-            return redirect(url_for('home'))
-        user = User(first_name=form.name.data, email=form.email.data, phone=form.phone.data)
-
-        services_needed = request.form.getlist('services_needed')
-
-        data = {
-            'contact_type': form.contact_type.data,
-            'hours_needed': form.hours_needed.data,
-            'services_needed': services_needed,
-            'message': form.message.data
-        }
-        email_status = send_contact_email(user, data)
-        if email_status == 200:
-            flash('Please check ' + user.email + ' for a confirmation email. Thank you for reaching out!')
-            return redirect(url_for('index', _anchor="home"))
-        else:
-            flash('Email failed to send, please contact ' + hello, 'error')
+        return handle_contact_form(form, 'index')
     return render_template('index.html', form=form)
 
+@app.route('/alzheimers-care', methods=['GET', 'POST'])
+def alzheimers_care():
+    form = ContactForm()
+    if form.validate_on_submit():
+        return handle_contact_form(form, 'alzheimers_care')
+    return render_template('alzheimers-care.html', title='Alzheimer\'s Care', form=form)
+
+@app.route('/adult-care', methods=['GET', 'POST'])
+def adult_care():
+    form = ContactForm()
+    if form.validate_on_submit():
+        return handle_contact_form(form, 'adult_care')
+    return render_template('adult-care.html', title='Adult Care', form=form)
+
+@app.route('/companion-services', methods=['GET', 'POST'])
+def companion_services():
+    form = ContactForm()
+    if form.validate_on_submit():
+        return handle_contact_form(form, 'companion_services')
+    return render_template('companion-services.html', title='Companion Services', form=form)
+
+@app.route('/respite-care', methods=['GET', 'POST'])
+def respite_care():
+    form = ContactForm()
+    if form.validate_on_submit():
+        return handle_contact_form(form, 'respite_care')
+    return render_template('respite-care.html', title='Respite Care', form=form)
+
+@app.route('/24-hour-watch', methods=['GET', 'POST'])
+def twenty_four_hour_watch():
+    form = ContactForm()
+    if form.validate_on_submit():
+        return handle_contact_form(form, 'twenty_four_hour_watch')
+    return render_template('24-hour-watch.html', title='24-Hour Watch', form=form)
+
+@app.route('/parkinsons-care', methods=['GET', 'POST'])
+def parkinsons_care():
+    form = ContactForm()
+    if form.validate_on_submit():
+        return handle_contact_form(form, 'parkinsons_care')
+    return render_template('parkinsons-care.html', title='Parkinson\'s Care', form=form)
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():

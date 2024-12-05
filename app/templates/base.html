@@ -14,9 +14,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <!-- favicons -->
-      <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/favicons/favicon.svg' ) }}" sizes="any">
-      <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicons/apple-touch-icon.png') }}">
-      <link rel="manifest" href="{{ url_for('static', filename='img/favicons/manifest.webmanifest') }}">
+      <link rel="icon" href="{{ url_for('static', filename='img/favicons/favicon.ico') }}" sizes="any">
 
       {% block styles %}
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +64,7 @@
     {% block footer %}
       <footer class="footer row pb-4 pt-3 justify-content-center align-content-between
       align-items-end">
-        <div class="col-11 col-md-4">
+        <div class="col-11 col-md-6">
           <table>
             <tr>
               <td>
@@ -87,7 +85,7 @@
                 </svg>
               </td>
               <td>
-                <a class="white" href="tel:"></a>
+                <a class="white" href="tel:14354148551">(435) 414-8551</a>
               </td>
             </tr>
             <tr>
@@ -102,7 +100,7 @@
                 </svg>
               </td>
               <td>
-                <a class="white" href="mailto:" target="_blank"></a>
+                <a class="white" href="mailto:hello@likefamily.care" target="_blank">hello@likefamily.care</a>
               </td>
             </tr>
             <tr>
@@ -121,17 +119,17 @@
               </td>
               <td>
                 Designed in collaboration with <a id="creatorsweb"
-                href="https://creatorsweb.co" target="_blank">Creators Web</a>
+                class="white semibold" href="https://creatorsweb.co" target="_blank">Creators Web</a>
               </td>
             </tr>
           </table>
         </div>
 
-        <div class="d-none d-md-block col-11 col-md-7 text-md-end mt-2">
+        <div class="d-none d-md-block col-11 col-md-6 text-md-end mt-2">
           <span class="me-2"><img width="25" height="25" src="{{ url_for('static',
           filename='img/creatorsweb.svg') }}" alt=""></span><span>Designed in
           collaboration with <a id="creatorsweb" href="https://creatorsweb.co"
-          target="_blank">Creators Web</a></span>
+          class="white semibold" target="_blank">Creators Web</a></span>
         </div>
       </footer>
     {% endblock footer %}

@@ -1,5 +1,28 @@
-{% extends 'base.html' %}
+{% extends '_page-base.html' %}
 
-{% block content %}
+{% block image %}
+  <img src="{{ url_for('static', filename='img/ales-maze-a8BoxaCPrOY-unsplash.jpg') }}" class="img-fluid page-img">
+{% endblock image %}
 
-{% endblock content %}
+{% block text %}
+  <h3>Adult Care</h3>
+
+  <p>
+    Besides senior citizens, our certified nursing assistants also provide relief to young
+    and middle-aged adults suffering from certain diseases and injuries. With the help of
+    our certified nursing assistants, adults with special needs can live a life of
+    freedom. We provide essential daily living assistance - along with extra care - to
+    help our clients stay healthy and full of joy.
+  </p>
+
+  <p>
+    Some of our clients suffer from certain chronic conditions, while others are
+    experiencing short-term disabilities.
+  </p>
+
+  <p>
+    It isn't just about providing health care assistance - it's about liberating our
+    clients and making them feel capable. We've done it for thousands of adults, and we
+    can do it for your loved one, too.
+  </p>
+{% endblock text %}

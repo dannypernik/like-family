@@ -12,17 +12,17 @@
       welcome to reply to this email if you wish to add further details.
     </p>
     <p>
-      Care needed for {{ data['contact_type'] }}<br>
-      Hours needed: {{ data['hours_needed'] }}<br>
+      Care needed for {{ form_data['contact_type'] }}<br>
+      Hours needed: {{ form_data['hours_needed'] }}<br>
       Services needed:
       <ul>
-        {% for service in data['services_needed'] %}
+        {% for service in form_data['services_needed'] %}
           <li>{{ service }}</li>
         {% endfor %}
       </ul>
     </p>
     <p style="white-space: pre-wrap;">
-      Additional details: {{ data['message'] }}
+      Additional details: {{ form_data['message'] }}
     </p>
   </body>
 </html>

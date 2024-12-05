@@ -1,10 +1,10 @@
 {{ user.first_name }} ({{ user.email }}{% if user.phone %}, {{ user.phone }}{% endif %}) has sent you a message:
 
-{{ data['message'] }}
+{{ form_data['message'] }}
 
-Help needed for: {{ data['contact_type'] }}
-Hours needed: {{ data['hours_needed'] }}
+Help needed for: {{ form_data['contact_type'] }}
+Hours needed: {{ form_data['hours_needed'] }}
 Services needed:
-{% for service in data['services_needed'] %}
+{% for service in form_data['services_needed'] %}
   - {{ service }}
 {% endfor %}
