@@ -7308,7 +7308,10 @@ select {
 }
 
 .page-img {
+  display: block;
   border-radius: 2.5rem 2.5rem 0 0;
+  max-height: 400px;
+  margin: auto;
 }
 
 div.message {
@@ -7479,7 +7482,7 @@ div.message a {
 
 #home-title {
   line-height: 1;
-  margin-top: 10rem;
+  margin-top: 8rem;
 }
 
 #home-tagline {
@@ -7509,7 +7512,7 @@ div.message a {
   justify-content: space-between;
   background-color: transparent;
   border: none;
-  padding: 4rem 0 2rem;
+  padding: 2rem 0 2rem;
 }
 .home-nav li {
   list-style: none;

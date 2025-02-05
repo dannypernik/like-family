@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 
 {% block container %}
-  <div class="row title-margin justify-content-center">
-    <div class="col-10">
+  <div class="row mt-md-3 justify-content-center">
+    <div class="col-11 col-md-10">
       {% block content %}
         <div class="row">
-          <div class="order-md-2 col-10 col-md-5 col-xl-4 mt-5">
+          <div class="order-md-2 col col-md-5 col-xl-4 mt-4 pt-md-5">
             {% block image %}
-              <img src="{{ url_for('static', filename='img/isaac-quesada-FiIgXyC3t84-unsplash.jpg') }}" class="img-fluid page-img">
             {% endblock image %}
           </div>
-          <div class="order-md-1 col-12 col-md-7 col-xl-8 pe-md-5">
+          <div class="order-md-1 col-12 col-md-7 col-xl-8 mt-4 pe-md-5">
             {% block text %}{% endblock text %}
           </div>
         </div>
