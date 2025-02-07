@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-6">
         {% block logo_link %}
-          <a href="{{ url_for('index', _anchor='#contact') }}">
+          <a href="{{ url_for('home', _anchor='#contact') }}">
         {% endblock logo_link %}
           <img id="nav-img" class="img-fluid" src="{{ url_for('static', filename='img/lf-logo.jpg') }}">
         </a>
@@ -46,7 +46,7 @@
     </div>
     <div class="drawer__content">
       {% block home_link %}
-        <a href="{{ url_for('index') }}">
+        <a href="{{ url_for('home') }}">
       {% endblock home_link %}
         <div class="menu-link">
           <p>Home</p>
@@ -66,7 +66,7 @@
       </a>
 
       {% block contact_link %}
-        <a href="{{ url_for('index', _anchor='contact') }}">
+        <a href="{{ url_for('home', _anchor='contact') }}">
           <div class="menu-link">
             <p>Get in touch</p>
           </div>

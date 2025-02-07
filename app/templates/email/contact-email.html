@@ -5,11 +5,10 @@
   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-  <body style="color: #1C4D65;">
+  <body>
     <p>{{ user.first_name }}
       ({{ user.email }}{% if user.phone %}, {{ user.phone }}{% endif %})
-      has sent you a message:</p>
-    <p style="white-space: pre-wrap;">{{ form_data['message'] }}</p>
+      has contacted you from the {{ form_data['page'] }} page:</p>
     <p>
       <strong>Help needed for: </strong> {{ form_data['contact_type'] }}<br>
       <strong>Hours needed: </strong> {{ form_data['hours_needed'] }}<br>
@@ -19,6 +18,7 @@
           <li>{{ service }}</li>
         {% endfor %}
       </ul>
+      <p style="white-space: pre-wrap;">Additional details: {{ form_data['message'] }}</p>
     </p>
   </body>
 </html>

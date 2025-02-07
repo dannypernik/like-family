@@ -5,24 +5,23 @@
   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-  <body style="color: #1C4D65;">
+  <body>
     <p>
       Hi {{ user.first_name }}, thank you for contacting us.
-      We have received your message and will get back to you soon. You are
+      We have received your inquiry and will get back to you soon. You are
       welcome to reply to this email if you wish to add further details.
     </p>
     <p>
-      Care needed for {{ form_data['contact_type'] }}<br>
-      Hours needed: {{ form_data['hours_needed'] }}<br>
-      Services needed:
+      <strong>Help needed for: </strong> {{ form_data['contact_type'] }}<br>
+      <strong>Hours needed: </strong> {{ form_data['hours_needed'] }}<br>
+      <strong>Services needed:</strong>
       <ul>
         {% for service in form_data['services_needed'] %}
           <li>{{ service }}</li>
         {% endfor %}
       </ul>
-    </p>
-    <p style="white-space: pre-wrap;">
-      Additional details: {{ form_data['message'] }}
+      <p style="white-space: pre-wrap;">Additional details: {{ form_data['message'] }}</p>
+      <p>Contacted from the {{ form_data['page'] }} page</p>
     </p>
   </body>
 </html>

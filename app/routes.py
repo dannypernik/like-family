@@ -42,7 +42,7 @@ def handle_contact_form(form, redirect_page):
     """Helper function to process contact form submissions"""
     if not hcaptcha.verify():
         flash('hCapthca failed. Please try again.', 'error')
-        return redirect(url_for(redirect_page))
+        return redirect(url_for(redirect_page, _anchor=''))
 
     user = User(
         first_name=form.name.data,
@@ -55,7 +55,8 @@ def handle_contact_form(form, redirect_page):
         'contact_type': form.contact_type.data,
         'hours_needed': form.hours_needed.data,
         'services_needed': services_needed,
-        'message': form.message.data
+        'message': form.message.data,
+        'page': redirect_page.replace('_', ' ').title()
     }
 
     email_status = send_contact_email(user, data)
@@ -67,11 +68,11 @@ def handle_contact_form(form, redirect_page):
         return redirect(url_for(redirect_page))
 
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
-def index():
+@app.route('/home', methods=['GET', 'POST'])
+def home():
     form = ContactForm()
     if form.validate_on_submit():
-        return handle_contact_form(form, 'index')
+        return handle_contact_form(form, 'home')
     return render_template('index.html', form=form)
 
 @app.route('/alzheimers-care', methods=['GET', 'POST'])
