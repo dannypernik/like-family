@@ -44,9 +44,15 @@
   <p class="mb-3">{{ form.name }}</p>
   <p class="mb-3">{{ form.email }}</p>
   <p class="mb-3">{{ form.phone }}</p>
-  <p class="mb-3">{{ form.message(rows='4') }}</p>
-  {{ hcaptcha }}
-  {{ form.submit }}
+  <div class="mb-lg-3 d-lg-flex align-items-end">
+    <div class="flex-grow-1 me-lg-3">
+      <p class="mb-2 mb-lg-0">{{ form.message(rows='5') }}</p>
+    </div>
+    <div class="flex-shrink-0 d-lg-block text-center">
+      {{ hcaptcha }}
+    </div>
+  </div>
+  {{ form.submit(class='mt-2 mt-lg-3') }}
 </form>
 
 <p class="h5 text-center">

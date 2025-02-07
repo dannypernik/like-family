@@ -15,7 +15,7 @@ email-validator==2.0.0.post2
 Flask==2.3.3
 flask-babel==3.1.0
 Flask-Bootstrap==3.3.7.1
-Flask-hCaptcha==0.6.0
+Flask-hCaptcha==0.7.2
 Flask-Limiter==3.5.0
 Flask-Login==0.6.2
 flask-mailman==0.3.0
