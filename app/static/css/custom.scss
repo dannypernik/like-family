@@ -431,7 +431,7 @@ div.message {
   max-height: 6rem;
   height: 100%;
   max-width: 100%;
-  margin: 0;
+  margin-top: 2rem;
   object-fit: contain;
   display: block;
 }
@@ -441,8 +441,8 @@ div.message {
 
   &::after {
     position: absolute;
-    right: 1.5rem;
-    top: 2.9rem;
+    right: 2rem;
+    top: 3.3rem;
     margin-right: 0.25rem;
     vertical-align: 0.1rem;
   }
@@ -452,7 +452,7 @@ div.message {
   background-color: $secondary-color;
   // color: darken($secondary-color, 15%);
   margin-top: 1rem;
-  width: 111%;
+  width: 18rem;
 }
 
 #menu-title {
@@ -535,6 +535,21 @@ div.message {
   }
 }
 
+.caret-right {
+    display: inline-block;
+    position: absolute;
+    left: 14.5rem;
+    top: 2.5rem;
+    font-size: 2.3rem;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid transparent;
+    border-right: 0;
+    border-bottom: 0.3em solid transparent;
+    border-left: 0.3em solid;
+}
+
 .footer {
   flex-shrink: 0;
   width: 100%;
@@ -548,7 +563,7 @@ div.message {
 // Home page
 
 #home-1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../img/annie-spratt-vY-dUdwUWfs-unsplash.jpg) center top no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../img/home-bg-lg.jpg) center right no-repeat;
   width: 100%;
 }
 
@@ -573,6 +588,10 @@ div.message {
   padding-right: 3rem;
 }
 
+.mt-logo {
+  margin-top: 4.25rem;
+}
+
 #home-title {
   line-height: 1;
   margin-top: 8rem;
@@ -587,9 +606,11 @@ div.message {
 // Mobile backgrounds //
 @media screen and (max-width: 575px) {
 
-  #home-1,
-  #home-3 {
+  #home-1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.35)), url(../img/home-bg-sm.jpg) center center no-repeat;
+    height: 100vh;
     background-attachment: scroll;
+    background-size: cover;
   }
 }
 

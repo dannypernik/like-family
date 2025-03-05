@@ -75,6 +75,13 @@ def home():
         return handle_contact_form(form, 'home')
     return render_template('index.html', form=form)
 
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    form = ContactForm()
+    if form.validate_on_submit():
+        return handle_contact_form(form, 'about')
+    return render_template('about.html', title="About us", form=form)
+
 @app.route('/alzheimers-care', methods=['GET', 'POST'])
 def alzheimers_care():
     form = ContactForm()

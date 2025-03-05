@@ -1,22 +1,28 @@
-{% extends "base.html" %}
+{% extends "_page-base.html" %}
 
 {% block content %}
-
   <div class="row justify-content-center">
     <h2 class="text-center mb-4">About us</h2>
   </div>
 
   <div class="row justify-content-center">
     <div class="col">
-
-    </div>
-  </div>
-
-  <div class="row text-center">
-    <div class="col">
-      <a href="{{ url_for('home', _anchor='contact') }}" class="btn">
-        Get in touch
-      </a>
+      <p>
+        At Like Family Personal Care, we believe that home is where the heart is, and
+        everyone deserves to feel safe, comfortable, and valued in their own space.
+        Founded on the core values of treating our clients like family, ensuring their
+        safety and comfort, and empowering them to live life on their own terms, we are
+        dedicated to providing compassionate, non-medical home care that enhances our
+        client's quality of life.
+      </p>
+      <p>
+        Our team is committed to delivering personalized support
+        with warmth and respect, whether it's assisting with daily activities,
+        companionship, or creating a nurturing environment that promotes independence. At
+        Like Family Personal Care, we go beyond caregiving—we build meaningful
+        relationships and provide peace of mind, so every client can continue living life
+        the way they choose, surrounded by care that feels just like family.
+      </p>
     </div>
   </div>
 {% endblock content %}

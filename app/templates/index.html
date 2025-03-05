@@ -23,16 +23,17 @@
       {% endif %}
     {% endwith %}
     <nav class="row justify-content-center g-0">
-      <div class="col-11 col-xl-10">
+      <div class="col-12 col-sm-11 col-xl-10">
         <div class="row justify-content-center">
           <div class="d-none d-md-block col-md-5">
             <a>
-              <img id="home-logo" class="img-fluid mt-3" src="{{ url_for('static', filename='img/logo-white.png') }}" alt="">
+              <img id="home-logo" class="img-fluid mt-logo" src="{{ url_for('static', filename='img/logo-white.png') }}" alt="">
             </a>
           </div>
           <div class="home-nav align-items-center col-11 col-md-7 mt-md-3">
             <div class="dropdown">
-              <a href="#" role="button" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" data-text="our services dd">our services</a>
+              <a href="#" role="button" class="dropdown-toggle d-none d-md-block" type="button" data-bs-toggle="dropdown" data-text="our services dd">our services</a>
+              <a href="#" role="button" class="dropdown-toggle d-block d-md-none" type="button" data-bs-toggle="dropdown" data-text="services dd">services</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ url_for('alzheimers_care') }}">Alzheimer's Care</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('parkinsons_care') }}">Parkinson's Care</a></li>
@@ -42,7 +43,7 @@
                 <li><a class="dropdown-item" href="{{ url_for('adult_care') }}">Adult Care</a></li>
               </ul>
             </div>
-            <!-- <div><a href="{{ url_for('about') }}" data-text="about">about</a></div> -->
+            <div><a href="{{ url_for('about') }}" class="pe-4" data-text="about">about</a></div>
             <div><a href="#contact" data-text="contact">contact</a></div>
           </div>
         </div>
