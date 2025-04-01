@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if status == 'success' %}
+    <h3>Message sent</h3>
+    <p>
+      Thank you for reaching out. We've received your message and will be in touch soon.
+      A confirmation email has been sent to <strong>{{ user.email }}</strong>. If you don't see it in
+      your inbox or spam folder, you can contact us directly at
+      <a class="fw-bold" href="mailto:{{ contact_email }}">{{ contact_email }}</a>.
+    </p>
+
+    <div class="text-center">
+      <a class="btn text-center" href="{{ url_for('home') }}">Home</a>
+    </div>
+  {% else %}
+    <h3>Message failed to send</h3>
+    <p>
+      Apologies for the inconvenience, but we seem to be having some technical difficulties.
+      Please contact us directly at <a class="fw-bold" href="mailto:{{ contact_email }}">{{ contact_email }}</a> or click the link below to try again.
+    </p>
+    <p>You can copy/paste your message below so you don't need to rewrite it:</p>
+    <p style="white-space: pre-wrap;">{{ form_data['message'] }}</p>
+
+    <div class="text-center">
+      <a class="btn text-center" href="{{ url_for('home', _anchor='contact') }}">Contact us</a>
+    </div>
+  {% endif %}
+{% endblock content %}

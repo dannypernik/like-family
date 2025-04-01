@@ -67,11 +67,11 @@ def handle_contact_form(form, redirect_page):
 
     email_status = send_contact_email(user, data)
     if email_status == 200:
-        flash('Please check ' + user.email + ' for a confirmation email. Thank you for reaching out!')
-        return redirect(url_for(redirect_page, _anchor=''))
+        status = 'success'
     else:
-        flash('Email failed to send, please contact ' + hello, 'error')
-        return redirect(url_for(redirect_page, _anchor=''))
+        status = 'error'
+    return render_template('message-submitted.html', user=user, data=data, \
+        contact_email=contact_email, status=status)
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
