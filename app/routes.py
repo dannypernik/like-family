@@ -22,9 +22,11 @@ def dir_last_updated(folder):
                    for root_path, dirs, files in os.walk(folder)
                    for f in files))
 
+contact_email = app.config['MAIL_USERNAME']
+
 @app.context_processor
 def inject_values():
-    return dict(last_updated=dir_last_updated('app/static'))
+    return dict(last_updated=dir_last_updated('app/static'), contact_email=contact_email)
 
 def admin_required(f):
     @login_required
@@ -77,7 +79,7 @@ def home():
     form = ContactForm()
     if form.validate_on_submit():
         return handle_contact_form(form, 'home')
-    return render_template('index.html', form=form, hcaptcha_key=hcaptcha_key, last_updated=dir_last_updated('app/static'))
+    return render_template('home.html', form=form, hcaptcha_key=hcaptcha_key, last_updated=dir_last_updated('app/static'))
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():

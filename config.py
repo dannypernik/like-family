@@ -14,5 +14,5 @@ class Config(object):
     HCAPTCHA_SECRET_KEY = os.environ.get('HCAPTCHA_SECRET_KEY')
     MAILJET_KEY = os.environ.get('MAILJET_KEY')
     MAILJET_SECRET = os.environ.get('MAILJET_SECRET')
-    HELLO_EMAIL = os.environ.get('HELLO_EMAIL')
+    CONTACT_EMAIL = os.environ.get('CONTACT_EMAIL')
     PHONE = os.environ.get('PHONE')
