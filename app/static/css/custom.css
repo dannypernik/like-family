@@ -7092,12 +7092,17 @@ input[type=submit] {
   font-weight: 600;
   line-height: 3rem;
 }
-button:hover,
-.btn:hover,
-input[type=submit]:hover {
+button:not(:disabled):hover,
+.btn:not(:disabled):hover,
+input[type=submit]:not(:disabled):hover {
   background-color: #45c88d;
   border-color: #45c88d;
   color: white;
+}
+button:disabled,
+.btn:disabled,
+input[type=submit]:disabled {
+  opacity: 0.65;
 }
 button .btn.clr,
 .btn .btn.clr,

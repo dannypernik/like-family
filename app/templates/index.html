@@ -7,6 +7,8 @@
 
   <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 {% endblock head %}
 
 {% block container %}
@@ -340,33 +342,36 @@
   </div>
 {% endblock container %}
 
+
 {% block end_scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
-<script type="module">
+  <script type="module">
 
-  var slider = tns({
-    container: '.testimonials',
-    // autoplay: true,
-    // autoplayTimeout: 10000,
-    center: true,
-    //autoplayButton: false,
-    autoplayHoverPause: true,
-    mouseDrag: true,
-    gutter: 150,
-    edgePadding: 50,
-    responsive: {
-      768: {
-        edgePadding: 100,
+    var slider = tns({
+      container: '.testimonials',
+      // autoplay: true,
+      // autoplayTimeout: 10000,
+      center: true,
+      //autoplayButton: false,
+      autoplayHoverPause: true,
+      mouseDrag: true,
+      gutter: 150,
+      edgePadding: 50,
+      responsive: {
+        768: {
+          edgePadding: 100,
+        },
       },
-    },
-    controlsContainer: '#controls-container',
-    navPosition: 'bottom',
-    autoplayPosition: 'bottom',
-    autoplayText: [
-      "&#x23F5",
-      '&#x23F8',
-    ],
-  });
-</script>
+      controlsContainer: '#controls-container',
+      navPosition: 'bottom',
+      autoplayPosition: 'bottom',
+      autoplayText: [
+        "&#x23F5",
+        '&#x23F8',
+      ],
+    });
+  </script>
+
+  <script src="{{ url_for('static', filename='js/check-form-completion.js') }}"></script>
 {% endblock end_scripts %}

@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block head %}
+  {{ super() }}
+
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+{% endblock head %}
+
 {% block container %}
   <div class="row mt-md-3 justify-content-center">
     <div class="col-11 col-md-10">
@@ -20,3 +26,7 @@
     </div>
   </div>
 {% endblock container %}
+
+{% block end_scripts %}
+  <script src="{{ url_for('static', filename='js/check-form-completion.js') }}"></script>
+{% endblock end_scripts %}
