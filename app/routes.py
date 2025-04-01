@@ -79,7 +79,7 @@ def home():
     form = ContactForm()
     if form.validate_on_submit():
         return handle_contact_form(form, 'home')
-    return render_template('home.html', form=form, hcaptcha_key=hcaptcha_key, last_updated=dir_last_updated('app/static'))
+    return render_template('home.html', form=form, hcaptcha_key=hcaptcha_key)
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():
