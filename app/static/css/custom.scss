@@ -151,17 +151,28 @@ input[type="submit"] {
   font-weight: 600;
   line-height: 3rem;
 
-  &:not(:disabled):hover {
-    background-color: lighten($primary-color, 10%);
-    border-color: lighten($primary-color, 10%);
+  &:hover {
+    background-color: $primary-color;
+    border-color: $primary-color;
     color: white;
+    filter: brightness(1.2); // Lightens by 15%
   }
+
+  // &:not(:disabled):hover {
+  //   background-color: lighten($primary-color, 10%);
+  //   border-color: lighten($primary-color, 10%);
+  //   color: white;
+  // }
 
   &:disabled {
     // background-color: #aaa;
     // border-color: #aaa;
     // color: white;
     opacity: 0.65;
+
+    &:hover {
+      filter: brightness(1); // No change on hover
+    }
   }
 
   .btn.clr {
@@ -376,6 +387,11 @@ select {
     &:hover {
       background-color: lighten($secondary-color, 7%);
       border-color: lighten($secondary-color, 7%);
+    }
+
+    &.sec {
+      background-color: $primary-color;
+      border-color: $primary-color;
     }
   }
 }
@@ -627,6 +643,11 @@ div.message {
   #home-title {
     margin-top: 2rem;
   }
+}
+
+.bi-telephone-fill {
+  vertical-align: text-bottom;
+  margin-right: 0.5rem;
 }
 
 .darken {

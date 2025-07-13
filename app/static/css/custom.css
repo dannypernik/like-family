@@ -7092,17 +7092,23 @@ input[type=submit] {
   font-weight: 600;
   line-height: 3rem;
 }
-button:not(:disabled):hover,
-.btn:not(:disabled):hover,
-input[type=submit]:not(:disabled):hover {
-  background-color: #45c88d;
-  border-color: #45c88d;
+button:hover,
+.btn:hover,
+input[type=submit]:hover {
+  background-color: #32a873;
+  border-color: #32a873;
   color: white;
+  filter: brightness(1.2);
 }
 button:disabled,
 .btn:disabled,
 input[type=submit]:disabled {
   opacity: 0.65;
+}
+button:disabled:hover,
+.btn:disabled:hover,
+input[type=submit]:disabled:hover {
+  filter: brightness(1);
 }
 button .btn.clr,
 .btn .btn.clr,
@@ -7305,6 +7311,12 @@ select {
 .inverse input[type=submit]:hover {
   background-color: #45a3f6;
   border-color: #45a3f6;
+}
+.inverse button.sec,
+.inverse .btn.sec,
+.inverse input[type=submit].sec {
+  background-color: #32a873;
+  border-color: #32a873;
 }
 
 .img-fluid {
@@ -7528,6 +7540,11 @@ div.message a {
     margin-top: 2rem;
   }
 }
+.bi-telephone-fill {
+  vertical-align: text-bottom;
+  margin-right: 0.5rem;
+}
+
 .darken {
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
